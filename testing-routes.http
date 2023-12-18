@@ -1,0 +1,29 @@
+POST  http://localhost:8888/emboli
+Content-Type: application/json
+
+{
+    "title": "Testando requisition",
+    "descripiton": "video de teste",
+    "duration": 180
+}
+
+###  
+
+GET  http://localhost:8888/emboli
+
+
+###
+
+PUT http://localhost:8888/emboli/b1280780-0f77-44ec-bd56-3560731acfc9
+Content-Type: application/json
+
+{
+    "title": "Testando requisition para teste",
+    "descripiton": "video de teste",
+    "duration": 180
+}
+
+
+###
+
+DELETE  http://localhost:8888/emboli/83fe5ed9-916e-4250-931e-40ca5c3de8f5
