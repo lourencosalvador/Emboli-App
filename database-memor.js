@@ -3,8 +3,9 @@ import { randomUUID } from "crypto"
 export class Databasememory {
    #video = new Map()
 
-   list(){
-    return  Array.from(this.#video.entries()).map((videoTodos) => {
+   list(search){
+    return  Array.from(this.#video.entries())
+    .map((videoTodos) => {
       const id = videoTodos[0]
       const data = videoTodos[1]
 
@@ -12,7 +13,13 @@ export class Databasememory {
          id,
          ...data,
       }
-    })
+    }).filter(video => {
+      if(search){
+         return video.title.includes(search)
+      }
+
+      return true
+    } )
    }
 
    create(video){

@@ -20,7 +20,8 @@ const {title, descripiton, duration} = request.body
 })
 
 server.get('/emboli', (request, reply) => {
-    const videos = database.list()
+    const search = request.query.search
+    const videos = database.list(search)
 
     return videos
 })
