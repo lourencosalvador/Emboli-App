@@ -3,13 +3,13 @@ Content-Type: application/json
 
 {
     "title": "Testando node",
-    "descripiton": "video de teste",
+    "description": "video de teste",
     "duration": 180
 }
 
 ###  
 
-GET  http://localhost:8888/emboli?search=node
+GET  http://localhost:8888/emboli
 
 
 ###
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 {
     "title": "Testando requisition para teste",
-    "descripiton": "video de teste",
+    "description": "video de teste",
     "duration": 180
 }
 

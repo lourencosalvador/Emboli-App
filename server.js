@@ -1,37 +1,38 @@
 import { fastify  } from "fastify";
-import { Databasememory } from "./database-memor.js";
+import { DatabasePostGres } from "./database-postgress.js";
+// import { Databasememory } from "./database-memor.js";
 const server = fastify()
 
 
 
-const database = new Databasememory()
+const database = new  DatabasePostGres()
 
-server.post('/emboli', (request, reply) => {
+server.post('/emboli', async(request, reply) => {
 
-const {title, descripiton, duration} = request.body
+const {title, description, duration} = request.body
 
-    database.create({
+   await database.create({
         title,
-        descripiton,
+        description,
         duration
     })
 
     return reply.status(201).send();
 })
 
-server.get('/emboli', (request, reply) => {
+server.get('/emboli', async(request, reply) => {
     const search = request.query.search
-    const videos = database.list(search)
+    const videos = await database.list(search)
 
     return videos
 })
 
 server.put('/emboli/:id', (request, reply) => {
     const {id} = request.params.id
-    const {title, descripiton, duration} = request.body
+    const {title, description, duration} = request.body
     database.update(id, {
         title,
-        descripiton,
+        description,
         duration
     })
 

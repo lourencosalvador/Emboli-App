@@ -1,12 +1,17 @@
-import { sql } from "./db.js";
+import sql from "./db.js"
 
 
-sql `
-CREATE TABLE videos (
-    title TEXT,
-    description TEXT,
-    duration INTEGER
-);
-`.then(() => {
-    console.log('Tabela de videos criada com sucesso Lorrys Code')
-})
+// sql`DROP TABLE IF EXISTS videos`.then(()=> {
+//     console.log("Deletada com sucesso")
+// })
+
+ sql`
+ CREATE TABLE videos (
+    id           TEXT PRIMARY KEY,
+    title        TEXT,
+    description  TEXT,
+   duration     INTEGER
+ )
+ `.then(() => {
+   console.log('Tabela de videos criada com sucesso Lorrys Code')
+ })
